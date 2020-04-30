@@ -4,7 +4,8 @@ class StylesJsx extends Component {
     render() {
         
         var mystyle = {
-            color:'#ff0000'
+            color:'#ff0000',
+            backgroundColor: "lightblue"
         }
         return (
             <div>
