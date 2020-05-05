@@ -13,6 +13,8 @@ class ListData extends Component {
                 
                 {name:'mahlet',emailid:'mahlet@gmail.com',age:30,tech:'MERN Stack'}
             ],
+            userSearch:[],searchText:""
+            ,
             userData:{name:'',emailid:'',age:0,tech:''},
             name:'',emailid:'',age:0,tech:''
         };
@@ -23,7 +25,12 @@ class ListData extends Component {
     }
     
     printData(){
-        return this.state.users.map((user)=>
+        var users  = this.state.users;
+        if(this.state.userSearch.length>0)
+        {
+            users = this.state.userSearch;
+        }
+        return users.map((user)=>
             <tr>
                 <td>
                     {user.name}
@@ -92,11 +99,40 @@ class ListData extends Component {
 
         this.setState({users:usersD});
     }
-
+    changeSearchText(ev){
+       
+            this.setState({searchText:ev.target.value});
+        
+    }
+    GetSearchText()
+    {
+        var userList = [];
+        var users = this.state.users;
+        if(this.state.searchText!="")
+        {
+            for (let index = 0; index < users.length; index++) {
+                const element = users[index];
+                if(element.name.includes(this.state.searchText)==true)
+                {
+                    userList.push(element);
+                }
+            }
+            if(userList.length>0)
+            {
+                
+                this.setState({userSearch:userList});
+                //this.setState({userSearch:users});
+        
+            }
+        }
+        else{
+            this.setState({searchText:""});
+            this.setState({userSearch:[]});
+        }
+    }
     render() {
         return (
             <div>
-
                 <table>
                     <thead>
                         <tr>
@@ -145,6 +181,9 @@ class ListData extends Component {
                 </table>
 
                 <hr/>
+
+               Search:<input type="text" onBlur={(ev)=>this.changeSearchText(ev)} placeholder="Search Name!"/>
+                <button onClick={()=>this.GetSearchText()}>Search</button>
               <table border="1">
                     <thead>
                     <tr>
