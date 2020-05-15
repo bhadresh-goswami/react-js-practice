@@ -1,0 +1,32 @@
+
+.nav
+{
+  padding: 10px;
+  margin: 0px auto;
+  background-color: red;
+}
+
+.main_content{
+  width: 70%;
+  float: left;
+  background-color: yellow;
+  display: inline-block;
+}
+
+.sidebar{  
+
+  float: right;
+  width: 25%;
+  display: inline-block;
+  background-color: green;
+}
+
+.clear{
+  clear: both;
+}
+
+.footer{
+  margin: 0px auto;
+  padding: 10px;
+  background-color: red;
+}
