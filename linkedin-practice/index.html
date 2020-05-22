@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Demo</title>
+    <!-- From: https://reactjs.org/docs/cdn-links.html -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <style>
+        h2{
+            text-decoration: underline;
+        }
+    </style>
+
+    <!-- Bable Link -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <h2>Simple</h2>
+    <div id="root"></div>
+    <script type="text/javascript">
+        ReactDOM.render(
+            React.createElement("h1",null,"hello world!"),
+            document.getElementById("root")
+        );
+    </script>
+    
+    <h2>Attribute</h2>
+    <div id="root_attribute"></div>
+    <script type="text/javascript">
+        ReactDOM.render(
+            React.createElement("h1",{"style":{"color":"red"}},"hello world!"),
+            document.getElementById("root_attribute")
+        );
+    </script>
+    
+    <h2>Nested Child</h2>
+    <div id="root_child"></div>
+    <script type="text/javascript">
+        ReactDOM.render(
+            React.createElement("div",{"style":{"backgroundColor":"red"}},
+                React.createElement("h1",{"style":{"color":"white"}},"child h1 is here!")
+            ),
+            document.getElementById("root_child")
+        );
+    </script>
+
+    
+    <h2>JSX Syntaxt</h2>
+    <div id="root_jsx"></div>
+    <script type="text/babel">
+        ReactDOM.render(
+            <h1>Hi! JSX</h1>
+            ,
+            document.getElementById("root_jsx")
+        );
+    </script>
+
+
+
+    
+    <h2>JSX Syntaxt</h2>
+    <div id="root_jsx_data"></div>
+    <script type="text/babel">
+        const name = "bhadresh";
+        ReactDOM.render(
+            <h1>Hi! {name}</h1>
+            ,
+            document.getElementById("root_jsx_data")
+        );
+    </script>
+    
+
+    
+
+    
+    <h2>JSX Syntaxt</h2>
+    <div id="root_jsx_data"></div>
+    <script type="text/babel">
+        const name = "bhadresh";
+        ReactDOM.render(
+            <h1>Hi! {name}</h1>
+            ,
+            document.getElementById("root_jsx_data")
+        );
+    </script>
+
+    
+    <h2>JSX Syntaxt</h2>
+    <div id="root_jsx_function"></div>
+    <script type="text/babel">
+        const name = "bhadresh";
+        const sayHi = (color) => {
+            return <h1 style={{"color":color}}>hi new testing!</h1>
+        }
+        ReactDOM.render(
+            sayHi("red")
+            ,
+            document.getElementById("root_jsx_function")
+        );
+    </script>
+    
+    
+    <h2>JSX Syntaxt Props</h2>
+    <div id="root_jsx_function_prp"></div>
+    <script type="text/babel">
+        const name = "bhadresh";
+        const SayHi = (props) => {
+            return  (
+                    <div>
+                        <h1 style={{"color":props.color}}>{props.text}</h1>
+                    </div>
+                    )
+        }
+        ReactDOM.render(
+            <SayHi text="hi testing component's props" color="red"/>
+            ,
+            document.getElementById("root_jsx_function_prp")
+        );
+    </script>
+    
+    
+    
+    <h2>JSX Syntaxt Components</h2>
+    <div id="root_jsx_cmp"></div>
+    <script type="text/babel">
+        
+        const Tag = (props) => 
+                    (
+                    
+                        <h1 style={{"color":props.color}}>{props.text}</h1>
+                    
+                    );
+        
+        const List = () => (
+            <div>
+                <Tag text="red text" color="red"/>
+                <Tag text="green text" color="green"/>
+                <Tag text="yellow text" color="yellow"/>
+            </div>
+        )
+        ReactDOM.render(
+            <List />
+            ,
+            document.getElementById("root_jsx_cmp")
+        );
+    </script>
+    
+    
+    
+    <h2>JSX Syntaxt Class Components</h2>
+    <div id="root_jsx_class"></div>
+    <script type="text/babel">
+        
+        const Tag = (props) => <h1 style={{"color":props.color}}>{props.text}</h1>;
+
+        class List extends React.Component{
+            state = {
+                isShow:false
+            }
+            render()
+            {
+             return(
+                       
+                    <div>
+                        <Tag text="red text" color="red"/>
+                        <Tag text="green text" color="green"/>
+                        <Tag text="yellow text" color="yellow"/>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(
+            <List />
+            ,
+            document.getElementById("root_jsx_class")
+        );
+    </script>
+    
+</body>
+</html>
