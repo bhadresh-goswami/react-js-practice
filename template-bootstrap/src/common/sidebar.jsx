@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 
+import {
+  
+  Link
+} from "react-router-dom";
+
 class SideBar extends Component {
     render() {
         return (
@@ -31,6 +36,37 @@ class SideBar extends Component {
       </div>
 
 
+      <li className="nav-item">
+        <Link className="nav-link" to="/">
+        <i className="fas fa-fw fa-chart-area"></i>
+          <span>Dashboard</span>
+        </Link>
+        {/* <a className="nav-link" href="/">
+          <i className="fas fa-fw fa-chart-area"></i>
+          <span>Dashboard</span></a> */}
+      </li>
+      
+
+      <li className="nav-item">
+        <Link className="nav-link" to="/search">
+        <i className="fas fa-fw fa-chart-area"></i>
+          <span>Search</span>
+        </Link>
+        {/* <a className="nav-link" href="/">
+          <i className="fas fa-fw fa-chart-area"></i>
+          <span>Dashboard</span></a> */}
+      </li>
+      
+
+      <li className="nav-item">
+        <Link className="nav-link" to="/report">
+        <i className="fas fa-fw fa-chart-area"></i>
+          <span>Report</span>
+        </Link>
+        {/* <a className="nav-link" href="/">
+          <i className="fas fa-fw fa-chart-area"></i>
+          <span>Dashboard</span></a> */}
+      </li>
       <li className="nav-item">
         <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i className="fas fa-fw fa-cog"></i>
